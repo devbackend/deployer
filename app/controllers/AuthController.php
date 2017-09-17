@@ -27,9 +27,9 @@ class AuthController {
 
 		$request = $requestHandler->getRequest();
 
-		/*if (false === $this->authHelper->can($request->user->uuid)) {
+		if (false === $this->authHelper->can($request->user->uuid)) {
 			return;
-		}*/
+		}
 
 		file_put_contents(
 			$this->fileSystemHelper->web() . DIRECTORY_SEPARATOR . '.auth' . DIRECTORY_SEPARATOR . $request->authKey,

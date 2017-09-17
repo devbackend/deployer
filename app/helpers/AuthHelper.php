@@ -2,6 +2,8 @@
 
 namespace app\helpers;
 
+use Webhooker\wrappers\User;
+
 /**
  * Хэлпер для работы с авторизацией пользователя.
  *
@@ -9,9 +11,9 @@ namespace app\helpers;
  */
 class AuthHelper extends Helper {
 	const APPLICATION_UUID  = '76d7dab0-9b93-11e7-8678-8f8107f8e383';
+	const AVAILABLE_UUID    = '5da30b90-f0e3-11e6-93b7-3bcf57257ab3';
 	const TOKEN             = '44e3b2f8510362acebbb8eb5cf49edcb4tdzm21b3scllzoe7lna9gzw0u14';
 	const COOKIE_KEY_NAME   = 'deployer-ag';
-	const AVAILABLE_UUID    = '';
 
 	/** @var static */
 	private static $instance;
@@ -37,7 +39,25 @@ class AuthHelper extends Helper {
 	 * @author Кривонос Иван <devbackend@yandex.ru>
 	 */
 	public function check(): bool {
-		return array_key_exists(static::COOKIE_KEY_NAME, $_COOKIE);
+		// -- Проверка, возможно авторизация совершена в данный момент
+		if (false !== array_key_exists('auth_key', $_GET)) {
+			$authFilePath = dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'web' . DIRECTORY_SEPARATOR . '.auth' . DIRECTORY_SEPARATOR . $_GET['auth_key'];
+			if (true === file_exists($authFilePath)) {
+				$user = file_get_contents($authFilePath);
+				$user = unserialize($user);/** @var User $user */
+
+				if (true === $this->can($user->uuid)) {
+					setcookie(static::COOKIE_KEY_NAME, $user->uuid, time() + 86400 * 7);
+
+					return true;
+				}
+			}
+		}
+		// -- -- -- --
+
+		return (true === array_key_exists(static::COOKIE_KEY_NAME, $_COOKIE)
+			&& true === $this->can($_COOKIE[static::COOKIE_KEY_NAME])
+		);
 	}
 
 	/**
