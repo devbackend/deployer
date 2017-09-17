@@ -73,9 +73,9 @@ class Connection extends AbstractComponent {
 		$logHandler = fopen($taskLog, 'w+');
 
 		foreach ($task->getStack() as $command) {
-			if (true === is_array($command)) {
+			/*if (true === is_array($command)) {
 				// @todo-29.07.2017-krivonos.iv паралелльное выполнение команд
-			}
+			}*/
 
 			if (null !== $this->rootDir) {
 				$command = implode(' && ', [
