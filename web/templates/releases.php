@@ -45,7 +45,7 @@ $tasks = [
 						<?php endif ?>
 
 						<span>
-							<b><?= $release->branch ?></b>
+							<b><?= $release->project ?>/<?= $release->branch ?></b>
 							<small>(<?= $release->execTime() ?> с)</small>
 						</span>
 
