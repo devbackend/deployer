@@ -2,12 +2,14 @@
 
 namespace app\traits;
 
+use app\helpers\AuthHelper;
 use app\helpers\FileSystemHelper;
 use app\helpers\StringHelper;
 
 /**
  * Примесь для работы с хелперами.
  *
+ * @property-read AuthHelper        $authHelper          Хелпер для работы с авторизацией
  * @property-read FileSystemHelper  $fileSystemHelper    Хелпер для работы с файловой системой
  * @property-read StringHelper      $stringHelper        Хелпер для работы со строками
  *

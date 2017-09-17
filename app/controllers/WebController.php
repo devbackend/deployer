@@ -31,6 +31,10 @@ class WebController {
 	 * @author Кривонос Иван <devbackend@yandex.ru>
 	 */
 	public function handleRequest() {
+		if (false === $this->authHelper->check()) {
+			return $this->authHelper->drawWidget();
+		}
+
 		$releases = $this->getLastReleases();
 
 		return require $this->fileSystemHelper->web() . '/templates/releases.php';

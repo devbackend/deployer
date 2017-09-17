@@ -4,8 +4,41 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e223f8d42cdc6b55b5911b7e9c75fbec",
+    "content-hash": "701df843a58223df55f4275b07f25ddb",
     "packages": [
+        {
+            "name": "devbackend/authgram-request-handler",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/devbackend/authgram-request-handler.git",
+                "reference": "c7d54fc513f936f846768527adf6d06f14b29c4e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/devbackend/authgram-request-handler/zipball/c7d54fc513f936f846768527adf6d06f14b29c4e",
+                "reference": "c7d54fc513f936f846768527adf6d06f14b29c4e",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "AuthGramRequestHandler\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Krivonos",
+                    "email": "devbackend@yandex.ru"
+                }
+            ],
+            "description": "PHP library for handling authorise request from AuthGramBot",
+            "time": "2017-03-03T13:57:17+00:00"
+        },
         {
             "name": "devbackend/webhooker",
             "version": "1.0.2",
