@@ -63,7 +63,9 @@ class Connection extends AbstractComponent {
 	 * @author Кривонос Иван <devbackend@yandex.ru>
 	 */
 	public function runTask(AbstractTask $task) {
-		$taskLog = basename(get_class($task));
+		$taskLog = get_class($task);
+		$taskLog = str_replace('\\', DIRECTORY_SEPARATOR, $taskLog);
+		$taskLog = basename($taskLog);
 		$taskLog = str_replace('Task', '', $taskLog);
 		$taskLog = $this->stringHelper->kebabCase($taskLog) . '.log';
 		$taskLog = $this->fileSystemHelper->releaseDir() . DIRECTORY_SEPARATOR . $taskLog;
