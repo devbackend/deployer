@@ -24,7 +24,7 @@
 	display:       block;
 	width:         100%;
 	margin-bottom: 5px;
-	font-size:     20px;
+	font-size:     18px;
 }
 
 .release-nav a span:first-of-type b {
@@ -55,7 +55,8 @@
 }
 
 .task-content {
-	margin-top: 25px;
-	padding:    20px;
-	color:      #00e676;
+	margin-top:       25px;
+	padding:          20px;
+	color:            #00e676;
+	background-color: #212121;
 }

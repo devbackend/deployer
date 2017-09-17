@@ -76,8 +76,10 @@ $tasks = [
 				</ul>
 
 				<?php foreach ($tasks as $task): ?>
-					<div class="task-content <?= ('deploy' === $task ? 'active' : '') ?>" data-task-content="<?= $task?>">
-						<?= $release->showTask($task) ?>
+					<div class="task-content <?= ('deploy' === $task ? 'active' : '') ?>" data-task-content="<?= $task ?>">
+						<?php foreach ($release->getTaskLines($task) as $taskLine): ?>
+							<p><?= $taskLine ?></p>
+						<?php endforeach ?>
 					</div>
 				<?php endforeach ?>
 			</div>

@@ -61,14 +61,17 @@ class Release {
 	 *
 	 * @param string $task
 	 *
-	 * @return string
+	 * @return string[]
 	 *
 	 * @author Кривонос Иван <devbackend@yandex.ru>
 	 */
-	public function showTask(string $task): string {
-		return (true === $this->hasTask($task)
-			? nl2br(file_get_contents($this->logsDir . '/' . $task . '.log'))
-			: ''
-		);
+	public function getTaskLines(string $task) {
+		if (false === $this->hasTask($task)) {
+			return [];
+		}
+
+		$content = file_get_contents($this->logsDir . '/' . $task . '.log');
+
+		return explode("\n", $content);
 	}
 }
