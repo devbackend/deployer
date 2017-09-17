@@ -31,6 +31,8 @@ class WebController {
 	 * @author Кривонос Иван <devbackend@yandex.ru>
 	 */
 	public function handleRequest() {
+		$releases = $this->getLastReleases();
+
 		return require $this->fileSystemHelper->web() . '/templates/releases.php';
 	}
 

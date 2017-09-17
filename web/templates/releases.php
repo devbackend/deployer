@@ -1,12 +1,14 @@
 <?php
 
+use app\models\Release;
+
 /**
  * Шаблон списка релизов.
  *
+ * @var Release[] $releases
+ *
  * @author Кривонос Иван <devbackend@yandex.ru>
  */
-
-$releases = $this->getLastReleases();
 
 $tasks = [
 	'deploy',
