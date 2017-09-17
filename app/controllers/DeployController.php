@@ -57,6 +57,7 @@ class DeployController {
 		// -- -- -- --
 
 		// -- Проставляем данные релиза
+		$this->release->project     = $this->webhook->repository->name;
 		$this->release->branch      = $this->webhook->push->changes[0]->new->name;
 		$this->release->time        = $this->webhook->push->changes[0]->new->target->date;
 		$this->release->author      = $this->webhook->push->changes[0]->new->target->author->raw;

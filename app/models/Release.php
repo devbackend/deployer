@@ -11,6 +11,9 @@ class Release {
 	/** @var bool Релиз в процессе накатывания */
 	public $handling = true;
 
+	/** @var string Название проекта */
+	public $project;
+
 	/** @var string Ветка релиза */
 	public $branch;
 
